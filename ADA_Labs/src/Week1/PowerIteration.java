@@ -34,6 +34,38 @@ public class PowerIteration {
             
         };
         
+        System.out.println("Matrix: ");
+        printMatrix(ajComplete);
+        System.out.println("Identity Matrix:");
+        printMatrix(createMatrixI(ajComplete));
        
+    }
+    
+    private static int[][] createMatrixI(int[][] matrixA) {
+        int matrixSize = matrixA.length;
+        
+        int[][] matrixI = new int[matrixSize][matrixSize];
+        
+        for(int i = 0; i < matrixSize; i++) {
+            for(int j = 0; j < matrixSize; j++) {
+                if(i == j) {
+                    matrixI[i][j] = 1;
+                } else {
+                    matrixI[i][j] = 0;
+                }
+            }
+        }
+        
+        return matrixI;
+    }
+    
+    private static void printMatrix(int[][] printMatrix) {
+        
+        for (int[] printMatrix1 : printMatrix) {
+            for (int j = 0; j < printMatrix.length; j++) {
+                System.out.print(printMatrix1[j] + " ");
+            }
+            System.out.println("");
+        }
     }
 }
