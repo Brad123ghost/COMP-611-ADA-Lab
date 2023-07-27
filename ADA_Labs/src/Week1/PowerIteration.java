@@ -38,7 +38,7 @@ public class PowerIteration {
         printMatrix(ajComplete);
         System.out.println("Identity Matrix:");
         printMatrix(createMatrixI(ajComplete));
-       
+         
     }
     
     private static int[][] createMatrixI(int[][] matrixA) {
