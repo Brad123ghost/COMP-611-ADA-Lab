@@ -88,7 +88,7 @@ public class MatrixOperations {
                         sum += (a * b);
                     }
                     tempMatrix[j][i] = sum;
-                    System.out.println("SUM: " + sum);
+//                    System.out.println("SUM: " + sum);
 //                    System.out.println("NEW LINE");
                     sum = 0;
                 }
