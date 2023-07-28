@@ -75,20 +75,27 @@ public class MatrixOperations {
             System.out.println("Matrix Size Mismatch");
         } else {
             tempMatrix = new float[matrixARow][matrixBRow];
-            int sum = 0;
-          
-            for(int k = 0; k < matrixARow; k++) {
-                for(int j = 0; j < matrixBRow; j++) {
-                    for(int i = 0; i < matrixACol; i++) {
-                       tempMatrix[k][j] += matrixA[k][i] * matrixB[k][j];
+            float sum = 0;
+
+            for(int i = 0; i < matrixBRow; i++) {
+                for(int j = 0; j < matrixARow; j++) {
+                    for(int k = 0; k < matrixBCol; k++) {
+                        float a = matrixA[j][k];
+                        float b = matrixB[k][i];
+//                        System.out.println(a * b);
+//                        System.out.println(a + " * " + b);
+//                        System.out.println();
+                        sum += (a * b);
                     }
-                    
-                     
+                    tempMatrix[j][i] = sum;
+                    System.out.println("SUM: " + sum);
+//                    System.out.println("NEW LINE");
+                    sum = 0;
                 }
             }
             return tempMatrix;
         }
-        
+//        
         return null;
     }
     
