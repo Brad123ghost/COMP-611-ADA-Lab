@@ -55,9 +55,13 @@ public class Centrality {
         initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
         matrixOp.printMatrix(initialVectorMatrix);
         
+        System.out.println("\nTime 3:");
+        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
+        matrixOp.printMatrix(initialVectorMatrix);
         
-        
-        
+        System.out.println("\nTime 4:");
+        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
+        matrixOp.printMatrix(initialVectorMatrix);
         
 //        System.out.println("Matrix A + I:");
 //        newMatrix = matrixOp.addMatrix(matrixB, matrixOp.createMatrixI(matrixB));
