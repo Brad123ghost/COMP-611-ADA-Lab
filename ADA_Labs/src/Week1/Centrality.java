@@ -37,34 +37,39 @@ public class Centrality {
             {1},
             {1}
         };
-        
-        
-        
+
         MatrixOperations matrixOp = new MatrixOperations();
-        
+
         float[][] idenMatrix = matrixOp.createMatrixI(matrixA);
         
         float[][] newMatrix = matrixOp.addMatrix(matrixA, idenMatrix);
-        
-//        System.out.println("Matrix A:");
-//        matrixOp.printMatrix(matrixA);
 //        
-//        System.out.println("\nIdentity Matrix:");
-//        matrixOp.printMatrix(idenMatrix);
-//        
-//        System.out.println("\nMatrix A + I:");
-//        matrixOp.printMatrix(newMatrix);
-//    
-//        System.out.println("(A + I)(timeMatrix):");
-//        matrixOp.printMatrix(matrixOp.multiplyMatrix(newMatrix, initialVectorMatrix));
-
         System.out.println("Matrix A + I:");
-        newMatrix = matrixOp.addMatrix(matrixB, matrixOp.createMatrixI(matrixB));
         matrixOp.printMatrix(newMatrix);
+//        
+        System.out.println("\nTime 1:");
+        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
+        matrixOp.printMatrix(initialVectorMatrix);
         
-        System.out.println("\nFirst Iteration:");
+        System.out.println("\nTime 2:");
+        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
+        matrixOp.printMatrix(initialVectorMatrix);
+        
+        
+        
+        
+        
+//        System.out.println("Matrix A + I:");
+//        newMatrix = matrixOp.addMatrix(matrixB, matrixOp.createMatrixI(matrixB));
+//        matrixOp.printMatrix(newMatrix);
+//        
+//        System.out.println("\nFirst Iteration:");
+////        initialVectorMatrixB = matrixOp.multiplyMatrix(newMatrix, initialVectorMatrixB);
+//        initialVectorMatrixB = matrixOp.powerIteration(newMatrix, initialVectorMatrixB);
+//        matrixOp.printMatrix(initialVectorMatrixB);
+//        System.out.println("\nSecond Iteration:");
 //        initialVectorMatrixB = matrixOp.multiplyMatrix(newMatrix, initialVectorMatrixB);
-        initialVectorMatrixB = matrixOp.powerIteration(matrixB, initialVectorMatrixB);
-        matrixOp.printMatrix(initialVectorMatrixB);
+        
+//        matrixOp.printMatrix(initialVectorMatrixB);
     }
 }
