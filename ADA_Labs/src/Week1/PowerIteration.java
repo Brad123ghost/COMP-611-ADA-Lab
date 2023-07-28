@@ -55,7 +55,6 @@ public class PowerIteration {
                 }
             }
         }
-        
         return matrixI;
     }
     
