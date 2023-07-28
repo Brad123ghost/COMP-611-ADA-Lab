@@ -87,6 +87,7 @@ public class MatrixOperations {
 //                        System.out.println();
                         sum += (a * b);
                     }
+
                     tempMatrix[j][i] = sum;
 //                    System.out.println("SUM: " + sum);
 //                    System.out.println("NEW LINE");
@@ -107,7 +108,9 @@ public class MatrixOperations {
         
         // Divide temp matrix by u
         for(int i = 0; i < tempMatrix.length; i++) {
-            tempMatrix[i][0] = tempMatrix[i][0]/u;
+            float newNum = tempMatrix[i][0]/u;
+            float rounded = (float) Math.round(newNum * 1000f)/1000f;
+            tempMatrix[i][0] = rounded;
         }
         
         return tempMatrix;
