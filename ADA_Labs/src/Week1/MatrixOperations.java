@@ -99,12 +99,16 @@ public class MatrixOperations {
 //        
         return null;
     }
+
+    public float[][] powerIteration(float[][] matrix, float[][] vecMatrix) {
+        float[][] result = powerIteration(matrix, vecMatrix, vecMatrix);
+        return result;
+    }
     
-    public float[][] powerIteration(float[][] matrixA, float[][] matrixB) {
-        float[][] tempMatrix = this.multiplyMatrix(matrixA, matrixB);
-        
+    private float[][] powerIteration(float[][] matrixA, float[][] matrixB, float[][] matrixC) {
+    
+        float[][] tempMatrix = this.multiplyMatrix(matrixA, matrixC);
         float u = tempMatrix[0][0];
-        
         
         // Divide temp matrix by u
         for(int i = 0; i < tempMatrix.length; i++) {
@@ -112,7 +116,29 @@ public class MatrixOperations {
             float rounded = (float) Math.round(newNum * 1000f)/1000f;
             tempMatrix[i][0] = rounded;
         }
-        
+       
+        if(vectorsChanging(matrixB, tempMatrix) == true) {
+//            System.out.println("Still Chanigng: " + vectorsChanging(matrixB, tempMatrix));
+            tempMatrix = powerIteration(matrixA, tempMatrix, tempMatrix);
+                
+        } 
         return tempMatrix;
+    }
+    
+    public boolean vectorsChanging(float[][] oldVector, float[][] newVector) {
+        boolean[] changing = new boolean[oldVector.length];
+        
+        for(int i = 0; i < oldVector.length; i++) {
+            changing[i] = !(oldVector[i][0] == newVector[i][0]);
+//            System.out.println(oldVector[i][0] + " - " + newVector[i][0] + "Same: " + (oldVector[i][0] == newVector[i][0]));
+        }
+        
+        for(boolean stillChanging : changing) {
+            if(stillChanging) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }
