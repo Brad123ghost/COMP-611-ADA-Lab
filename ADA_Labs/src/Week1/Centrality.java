@@ -51,7 +51,7 @@ public class Centrality {
         initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrixB);
         matrixOp.printMatrix(initialVectorMatrix);
         System.out.println("\nCentrality Vectors:");
-        matrixOp.printMatrix(matrixOp.normalise(initialVectorMatrix));
+        matrixOp.printMatrix(matrixOp.normalize(initialVectorMatrix));
 
         
         
