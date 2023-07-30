@@ -100,6 +100,17 @@ public class MatrixOperations {
         return null;
     }
 
+    public float[][] createInitialVectorMatrix(float[][] matrix) {
+        int mLength = matrix.length;
+        float[][] temp = new float[mLength][1];
+        
+        for(int i = 0; i < mLength; i++) {
+            temp[i][0] = 1;
+        }
+        
+        return temp;
+    }
+    
     public float[][] powerIteration(float[][] matrix, float[][] vecMatrix) {
         float[][] result = powerIteration(matrix, vecMatrix, vecMatrix);
         return result;
