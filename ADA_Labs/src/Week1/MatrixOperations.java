@@ -141,4 +141,19 @@ public class MatrixOperations {
         
         return false;
     }
+    
+    public float[][] normalize(float[][] matrix) {
+        float sum = 0f;
+        for(int i = 0; i < matrix.length; i++){
+            sum += Math.pow(matrix[i][0], 2);
+        }
+        
+        float magnitude = (float)Math.sqrt(sum);
+        
+        float[][] temp = new float[matrix.length][1];
+        for(int i = 0; i < matrix.length; i++){
+            temp[i][0] = (float) Math.round(matrix[i][0]/magnitude * 1000f)/1000f;
+        }
+        return temp;
+    }
 }
