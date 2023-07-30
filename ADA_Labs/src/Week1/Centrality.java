@@ -40,16 +40,18 @@ public class Centrality {
 
         MatrixOperations matrixOp = new MatrixOperations();
 
-        float[][] idenMatrix = matrixOp.createMatrixI(matrixA);
+        float[][] idenMatrix = matrixOp.createMatrixI(matrixB);
         
-        float[][] newMatrix = matrixOp.addMatrix(matrixA, idenMatrix);
+        float[][] newMatrix = matrixOp.addMatrix(matrixB, idenMatrix);
 //        
         System.out.println("Matrix A + I:");
         matrixOp.printMatrix(newMatrix);
 //        
         System.out.println("\nFinal vectors:");
-        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrix);
+        initialVectorMatrix = matrixOp.powerIteration(newMatrix, initialVectorMatrixB);
         matrixOp.printMatrix(initialVectorMatrix);
+        System.out.println("\nCentrality Vectors:");
+        matrixOp.printMatrix(matrixOp.normalise(initialVectorMatrix));
 
         
         
